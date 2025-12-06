@@ -7,7 +7,7 @@
   --text: #0f1721;
   --muted: #6b7280;
   --accent-blue: #0d2740;
-  --accent-red: #de4b4b;
+  --accent-red: #e53945;
   --card-border: rgba(13, 18, 24, 0.06);
   --shadow: 0 8px 28px rgba(13, 18, 24, 0.06);
   --glass: rgba(255, 255, 255, 0.6);
@@ -438,7 +438,7 @@ body.dark-mode {
   --text: #e6eef8;
   --muted: #9aa3ad;
   --accent-blue: #2ec5b6;
-  --accent-red: #ff7b7b;
+  --accent-red: #e53945;
   --card-border: rgba(255, 255, 255, 0.04);
   --shadow: 0 10px 36px rgba(0, 0, 0, 0.45);
 }
