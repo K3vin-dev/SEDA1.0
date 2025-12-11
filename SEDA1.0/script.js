@@ -38,23 +38,32 @@
 // Simple contact form handler (demo)
 document
   .getElementById("contactForm")
-  ?.addEventListener("submit", function (e) {
+  .addEventListener("submit", async function (e) {
     e.preventDefault();
-    // Minimal UX feedback
-    const btn = this.querySelector('button[type="submit"]');
-    const original = btn.innerText;
-    btn.innerText = "Sending...";
-    btn.disabled = true;
 
-    // Simulate sending (replace with actual fetch/ajax)
-    setTimeout(() => {
-      btn.innerText = "Message Sent";
-      btn.classList.add("btn-success");
-      setTimeout(() => {
-        btn.innerText = original;
-        btn.disabled = false;
-        btn.classList.remove("btn-success");
+    const status = document.getElementById("formStatus");
+    const data = new FormData(this);
+
+    status.style.display = "block";
+    status.textContent = "Sending...";
+
+    try {
+      const response = await fetch(this.action, {
+        method: this.method,
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        status.className = "form-status success";
+        status.textContent = "Message sent successfully ✨";
         this.reset();
-      }, 1500);
-    }, 900);
+      } else {
+        status.className = "form-status error";
+        status.textContent = "Oops! Something went wrong. Try again.";
+      }
+    } catch (error) {
+      status.className = "form-status error";
+      status.textContent = "Network error. Please check your connection.";
+    }
   });

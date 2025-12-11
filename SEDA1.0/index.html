@@ -152,38 +152,31 @@
         <div class="contact-grid">
           <div class="contact-form">
             <h3>Let's Connect</h3>
-            <form id="contactForm">
-              <label class="label"
-                >Name
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter your Company name"
-                  required
-                />
-              </label>
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/mrbnoaoa"
+              method="POST"
+            >
+              <input type="text" name="name" placeholder="Your Name" required />
 
-              <label class="label"
-                >Email
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your Email"
-                  required
-                />
-              </label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
 
-              <label class="label"
-                >Message
-                <textarea
-                  name="message"
-                  rows="5"
-                  placeholder="Enter your message"
-                  required
-                ></textarea>
-              </label>
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                required
+              ></textarea>
 
-              <button type="submit" class="btn btn-primary">Message Us</button>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+
+              <p id="formStatus" class="form-status"></p>
             </form>
           </div>
 
